@@ -1,7 +1,7 @@
 
-# Quantum Circuit Topology Analysis with Qiskit
+# Quantum Circuit Topology Analysis
 
-This project provides a comparative analysis of different qubit topologies (specifically, star and linear chain topologies) on the execution of quantum circuits. The project uses Qiskit to simulate and visualize the impact of these topologies on quantum circuit performance, with a specific focus on latency, error rates, and gate counts.
+This project explores the impact of different qubit topologies (Star, Linear Chain, Ring, and Fully Connected) on the performance of quantum circuits. Using Qiskit, the project simulates a quantum circuit across these topologies, comparing metrics such as circuit depth, gate count, and final state fidelity to analyze the efficiency and effectiveness of each topology.
 
 
 ## Requirements
@@ -13,29 +13,38 @@ This project provides a comparative analysis of different qubit topologies (spec
 ## Usage
 
 1. **Run the Script**: Execute `main.ipynb` to run the simulations. The script will:
-   - Create a simple quantum circuit (Bell state preparation).
-   - Simulate the circuit using both star and linear chain topologies.
-   - Transpile the circuits for both topologies to observe how they differ.
+   - Create a quantum circuit with multi-qubit operations.
+   - Simulate the circuit using Star, Linear Chain, Ring, and Fully Connected topologies.
+   - Transpile the circuits for each topology to observe how they differ.
    - Execute the transpiled circuits on a simulator.
    - Visualize the results with a histogram comparing the measurement outcomes.
 
 
-2. **Analyze the Results**: The script will output the transpiled circuits and a histogram that compares the measurement results for the two topologies.
+2. **Analyze the Results**: The script outputs the transpiled circuits for each topology, the circuit depth, gate counts, and a histogram comparing the outcomes.
 
 ### Example Output
 
 - **Transpiled Circuits**: The script prints out the structure of the transpiled circuits for each topology.
-- **Measurement Results**: The results are displayed in a histogram, showing the distribution of outcomes (e.g., `000` vs `111` states).
+- **Measurement Results**: The results are displayed in a histogram, showing the distribution of outcomes (e.g., `000` vs `011` states) for each topology.
+- **Circuit Depth and Gate Count**: The output includes the depth of each circuit and the number of gates used, which are key metrics for understanding the efficiency of each topology.
 
 ## Key Concepts
 
-- **Star Topology**: In this topology, a central qubit is directly connected to all other qubits. This reduces the number of gates required for entanglement in some quantum circuits, potentially leading to lower latency and fewer errors.
-- **Linear Chain Topology**: In a linear topology, each qubit is only connected to its immediate neighbors. This can increase the number of gates required to perform operations on distant qubits, potentially increasing latency and error rates.
+- **Topologies**:
+  - **Star Topology**: Central qubit interacts with several others, but non-central qubits are not directly connected.
+  - **Linear Chain Topology**: Qubits are connected in a straight line, allowing direct operations between adjacent qubits.
+  - **Ring Topology**: Qubits are connected in a loop, reducing the need for SWAP operations in some cases.
+  - **Fully Connected Topology**: Every qubit is directly connected to every other qubit, minimizing the need for additional gates.
+
+- **Performance Metrics**:
+  - **Circuit Depth**: The number of layers of gates in the circuit. A higher depth can increase the likelihood of errors in quantum hardware.
+  - **Gate Count**: The number of quantum gates (e.g., CNOT, Hadamard, SWAP) in the circuit. More gates generally mean more complexity and a higher chance of errors.
 
 ## Observations
 
-- The star topology demonstrated better performance in terms of preserving the expected quantum state (`111` in the Bell state circuit).
-- The linear chain topology introduced more errors, likely due to the additional gates required for operations across qubits that are not directly connected.
+- The **Fully Connected Topology** generally performs the best in terms of minimizing circuit depth and gate count, leading to the most efficient execution.
+- The **Star Topology** introduces additional SWAP gates, resulting in higher depth and more gates, making it less efficient for circuits requiring multiple qubit interactions.
+- **Linear Chain** and **Ring Topologies** offer a good balance but may require SWAP operations, depending on the circuit's structure.
 
 ## Contributions
 
@@ -49,6 +58,6 @@ Feel free to contribute to this project by:
 ## References
 
 - [Qiskit Documentation](https://qiskit.org/documentation/)
-- [Introduction to Quantum Computing](https://qiskit.org/textbook/preface.html)
+- [Quantum Computing Textbook](https://qiskit.org/textbook/preface.html)
 
 ---
