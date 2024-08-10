@@ -3,11 +3,6 @@
 
 This project provides a comparative analysis of different qubit topologies (specifically, star and linear chain topologies) on the execution of quantum circuits. The project uses Qiskit to simulate and visualize the impact of these topologies on quantum circuit performance, with a specific focus on latency, error rates, and gate counts.
 
-## Project Structure
-
-- **main.py**: The main script that sets up and executes the quantum circuits for both topologies, and then compares the results.
-- **requirements.txt**: Lists the required Python packages for this project, primarily Qiskit.
-- **README.md**: This file. Provides an overview of the project, instructions for running the code, and an explanation of the results.
 
 ## Requirements
 
