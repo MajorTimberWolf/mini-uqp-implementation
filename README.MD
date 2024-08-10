@@ -1,7 +1,7 @@
 
 # Quantum Circuit Topology Analysis
 
-This project explores the impact of different qubit topologies (Star, Linear Chain, Ring, and Fully Connected) on the performance of quantum circuits. Using Qiskit, the project simulates a quantum circuit across these topologies, comparing metrics such as circuit depth, gate count, and final state fidelity to analyze the efficiency and effectiveness of each topology.
+This project explores the impact of different qubit topologies (Star, Linear Chain, Ring, and Fully Connected) on the performance of quantum circuits. Using Qiskit, the project simulates a quantum circuit across these topologies, comparing metrics such as circuit depth, gate count, and final state fidelity to analyze the efficiency and effectiveness of each topology. See `output.png` for results.
 
 
 ## Requirements
